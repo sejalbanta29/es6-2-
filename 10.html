@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Node {
+    constructor(elm){
+      this.element = elm;
+      this.next = null;
+    }
+  }
+  class stackUsingLL {
+    constructor(){
+      this.length = 0;
+      this.head = null;
+    }
+   
+     push = (elm) => {
+      //Create a new node
+      let node = new Node(elm),
+      current;
+
+      current = this.head;
+      node.next = current;
+      this.head = node;
+      
+      this.length++;
+    }
+     
+     pop = () => {
+      let current = this.head;
+      
+        if(current){
+        let elm = current.element;
+        current = current.next;
+        this.head = current;
+        this.length--;
+        return elm;
+      }
+      
+      return null;   
+    }
+    
+  peek = () => {   
+    if(this.head){    
+      return this.head.element;
+    }
+
+    return null; 
+  }
+  
+  toArray = () => {
+    let arr = [];
+    let current = this.head;
+    while(current){
+      arr.push(current.element);
+      current = current.next;
+    }
+    
+    return arr;
+  }
+  
+  isEmpty = () => {
+    return this.length === 0;
+  }
+  
+  size = () => {
+    return this.length;
+  }
+  
+  clear = () => {
+    this.head = null;
+    this.length = 0;
+  }
+}
+let stack = new stackUsingLL(); 
+ stack.push(1);
+ stack.push(2);
+ stack.push(3);
+ console.log(stack.peek());
+ 3
+
+ console.log(stack.isEmpty());
+ false
+
+ console.log(stack.size());
+ 3
+ 
+ console.log(stack.pop());
+ 3
+ 
+ console.log(stack.size());
+ 2
+ 
+ stack.clear();
+
+    </script>
+</body>
+</html>

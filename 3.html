@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>q3</title>
+</head>
+<body>
+    <script>
+        class Person {
+    constructor(name,age) {
+       this.name = name; 
+       this.age = age;
+       console.log(`Hi I am ${name}, I am ${age} years old`);
+    }
+}
+
+class course extends Person{
+    constructor(cname, name, age) {
+        super(name, age);
+        this.cname=cname;
+        console.log(`I took ${cname} course`);
+    }
+}
+
+class result extends course {
+    constructor(marks, cname, name, age) {
+        super(cname, name, age);
+        this.marks=marks;
+        console.log(`I got ${this.marks} marks`);
+    }
+}
+
+let res = new result(27,"Maths", "Sejal", 23);
+
+    </script>
+</body>
+</html>
